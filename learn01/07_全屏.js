@@ -56,3 +56,10 @@ const orbitControls = new OrbitControls(camera, renderer.domElement)
 orbitControls.addEventListener('change', () => {
   renderer.render(scene, camera)
 })
+
+// 视口发生变化
+window.onresize = function() {
+  renderer.setSize(window.innerWidth, window.innerHeight)
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+}
